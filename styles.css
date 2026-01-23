@@ -7,6 +7,8 @@
   --btnHover: rgba(11,18,32,0.09);
   --focus: rgba(11,18,32,0.18);
   --max: 780px;
+
+  --navH: 56px; /* base height without safe-area */
 }
 
 *{ box-sizing: border-box; }
@@ -23,7 +25,7 @@ body{
 .wrap{
   max-width: var(--max);
   margin: 0 auto;
-  padding: calc(env(safe-area-inset-top) + 28px) 18px calc(env(safe-area-inset-bottom) + 28px) 18px;
+  padding: calc(env(safe-area-inset-top) + 28px) 18px calc(var(--navH) + env(safe-area-inset-bottom) + 24px) 18px;
 }
 
 .date{
@@ -35,10 +37,6 @@ body{
 
 .section{
   padding: 16px 0;
-  border-top: 1px solid var(--line);
-}
-
-.section:first-of-type{
   border-top: 1px solid var(--line);
 }
 
@@ -63,12 +61,25 @@ body{
   font-size: 0.95rem;
 }
 
+/* Sticky bottom navigation bar */
 .nav{
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 10px 12px calc(env(safe-area-inset-bottom) + 10px) 12px;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid var(--line);
+}
+
+.nav-inner{
+  max-width: var(--max);
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   gap: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 14px;
 }
 
 .navbtn{
