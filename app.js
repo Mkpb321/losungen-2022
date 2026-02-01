@@ -132,33 +132,6 @@ if (el.btnToggleNT){
     if (ev.key === "ArrowRight") go(1);
   });
 
-  // Basic swipe support (mobile)
-  let touchStartX = null;
-  let touchStartY = null;
-
-  window.addEventListener("touchstart", (ev) => {
-    const t = ev.touches && ev.touches[0];
-    if (!t) return;
-    touchStartX = t.clientX;
-    touchStartY = t.clientY;
-  }, { passive: true });
-
-  window.addEventListener("touchend", (ev) => {
-    const t = ev.changedTouches && ev.changedTouches[0];
-    if (!t || touchStartX === null || touchStartY === null) return;
-
-    const dx = t.clientX - touchStartX;
-    const dy = t.clientY - touchStartY;
-
-    if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.4){
-      if (dx < 0) go(1);   // swipe left -> next
-      else go(-1);         // swipe right -> prev
-    }
-
-    touchStartX = null;
-    touchStartY = null;
-  }, { passive: true });
-
 // Init
 showAT = loadBool(STORAGE_SHOW_AT_KEY, true);
 showNT = loadBool(STORAGE_SHOW_NT_KEY, true);
