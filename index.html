@@ -26,13 +26,13 @@
   <main class="wrap" aria-live="polite" aria-atomic="true">
     <div class="date" id="dateText">—</div>
 
-    <section class="section">
+    <section class="section" id="sectionAT">
       <div class="label">Losung</div>
       <div class="text" id="losungText">—</div>
       <div class="ref" id="losungRef"></div>
     </section>
 
-    <section class="section">
+    <section class="section" id="sectionNT">
       <div class="label">Lehrtext</div>
       <div class="text" id="lehrText">—</div>
       <div class="ref" id="lehrRef"></div>
@@ -40,15 +40,25 @@
   </main>
 
   <nav class="nav" aria-label="Navigation">
-    <div class="nav-inner">
+  <div class="nav-inner">
+    <div class="nav-group nav-left">
       <button class="navbtn" id="btnPrev" type="button" aria-label="Vorheriger Tag">
         <span aria-hidden="true">←</span>
       </button>
+    </div>
+
+    <div class="nav-group nav-center" role="group" aria-label="Textfilter">
+      <button class="togbtn" id="btnToggleAT" type="button" aria-pressed="true" aria-label="AT-Text ein- oder ausblenden">AT</button>
+      <button class="togbtn" id="btnToggleNT" type="button" aria-pressed="true" aria-label="NT-Text ein- oder ausblenden">NT</button>
+    </div>
+
+    <div class="nav-group nav-right">
       <button class="navbtn" id="btnNext" type="button" aria-label="Nächster Tag">
         <span aria-hidden="true">→</span>
       </button>
     </div>
-  </nav>
+  </div>
+</nav>
 
   <script src="losungen_2022.js"></script>
   <script src="app.js"></script>
